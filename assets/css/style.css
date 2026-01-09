@@ -1814,3 +1814,309 @@ select:focus {
 .navbar .dropdown ul li:hover>a {
   color: #a78bfa;
 }
+
+/* Custom particle animation */
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translate(10px, -20px);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate(-10px, -40px);
+    opacity: 1;
+  }
+  75% {
+    transform: translate(15px, -30px);
+    opacity: 0.7;
+  }
+}
+
+.particle {
+  z-index: 1;
+}
+
+/* Enhanced hero section styling */
+.hero.route {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero .hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Enhanced Service Cards with 3D Effect */
+.service-box {
+  position: relative;
+  overflow: hidden;
+}
+
+.service-box::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(167, 139, 250, 0.1) 0%, transparent 70%);
+  transform: scale(0);
+  transition: transform 0.6s ease;
+}
+
+.service-box:hover::before {
+  transform: scale(1);
+}
+
+/* Enhanced Portfolio Cards */
+.work-box {
+  position: relative;
+  overflow: hidden;
+}
+
+.work-box::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(167, 139, 250, 0.3), transparent);
+  transition: left 0.6s ease;
+}
+
+.work-box:hover::after {
+  left: 100%;
+}
+
+/* Animated underline for links */
+.navbar a {
+  position: relative;
+}
+
+.navbar a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  transition: width 0.3s ease;
+}
+
+.navbar a:hover::after,
+.navbar .active::after {
+  width: 100%;
+}
+
+/* Skill bars with pulse effect */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(167, 139, 250, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(167, 139, 250, 1);
+  }
+}
+
+.skill-mf .progress-bar {
+  animation: shimmer 2s infinite, pulse-glow 2s infinite;
+}
+
+/* Scroll reveal animation */
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.service-box,
+.work-box,
+.counter-box {
+  animation: slideInFromBottom 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.service-box:nth-child(1) { animation-delay: 0.1s; }
+.service-box:nth-child(2) { animation-delay: 0.2s; }
+.service-box:nth-child(3) { animation-delay: 0.3s; }
+.service-box:nth-child(4) { animation-delay: 0.4s; }
+.service-box:nth-child(5) { animation-delay: 0.5s; }
+.service-box:nth-child(6) { animation-delay: 0.6s; }
+
+/* Enhanced button styling */
+.button,
+.button-a {
+  position: relative;
+  overflow: hidden;
+}
+
+.button::before,
+.button-a::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.button:hover::before,
+.button-a:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Counter number animation enhancement */
+.counter-num .counter {
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+}
+
+/* Image zoom effect enhancement */
+.work-img {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px 15px 0 0;
+}
+
+.work-img::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.3) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.work-box:hover .work-img::before {
+  opacity: 1;
+}
+
+/* Social icons pulse animation */
+.socials .ico-circle {
+  animation: socialPulse 2s infinite;
+}
+
+@keyframes socialPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(167, 139, 250, 0.3);
+  }
+}
+
+/* Enhanced form inputs */
+input[type="text"],
+input[type="email"],
+textarea {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(167, 139, 250, 0.3);
+  color: #e0e0e0;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: #a78bfa;
+  box-shadow: 0 0 20px rgba(167, 139, 250, 0.4);
+}
+
+/* Typing effect for hero subtitle */
+.typed-cursor {
+  color: #a78bfa;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Enhanced mobile menu */
+.mobile-nav-toggle {
+  transition: all 0.3s ease;
+}
+
+.mobile-nav-toggle:hover {
+  transform: scale(1.1);
+  color: #a78bfa;
+  text-shadow: 0 0 10px rgba(167, 139, 250, 0.8);
+}
+
+/* Loading state enhancement */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+body {
+  background-size: 200% 200%;
+  animation: gradientShift 15s ease infinite;
+}
+
+/* Enhanced testimonials */
+.testimonial-box {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: all 0.3s ease;
+}
+
+.testimonial-box:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 40px rgba(102, 126, 234, 0.5);
+}
+
+/* Contact section enhancement */
+#contact {
+  position: relative;
+}
+
+#contact::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #667eea, #764ba2, transparent);
+  box-shadow: 0 0 20px rgba(102, 126, 234, 0.6);
+}

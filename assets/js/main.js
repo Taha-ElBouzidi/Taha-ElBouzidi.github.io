@@ -183,7 +183,39 @@
   }
 
   new PureCounter();
+  
+  // Custom particle effect as replacement for particles.js
   window.addEventListener('load', () => {
+    const particlesContainer = document.getElementById('particles-js');
+    if (particlesContainer) {
+      createParticles(particlesContainer);
+    }
+  });
+
+  function createParticles(container) {
+    const particleCount = 50;
+    for (let i = 0; i < particleCount; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      particle.style.cssText = `
+        position: absolute;
+        width: ${Math.random() * 4 + 2}px;
+        height: ${Math.random() * 4 + 2}px;
+        background: radial-gradient(circle, rgba(167, 139, 250, 0.8) 0%, rgba(196, 181, 253, 0.4) 100%);
+        border-radius: 50%;
+        left: ${Math.random() * 100}%;
+        top: ${Math.random() * 100}%;
+        animation: float ${Math.random() * 10 + 10}s infinite ease-in-out;
+        animation-delay: ${Math.random() * 5}s;
+        box-shadow: 0 0 ${Math.random() * 10 + 5}px rgba(167, 139, 250, 0.6);
+        pointer-events: none;
+      `;
+      container.appendChild(particle);
+    }
+  }
+  
+  // Old particles.js code - keeping structure for reference
+  if (typeof particlesJS !== 'undefined') {
     particlesJS('particles-js', {
       particles: {
         number: {
@@ -294,5 +326,5 @@
       },
       retina_detect: true
     });
-  });
+  }
 })();
