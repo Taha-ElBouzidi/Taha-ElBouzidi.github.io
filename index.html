@@ -6,8 +6,8 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Taha El Bouzidi Portfolio</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <meta content="Taha El Bouzidi - Computer Science graduate specializing in AI, Web Development, and Data Analysis. Explore my portfolio of innovative projects in software development, machine learning, and web design." name="description">
+  <meta content="Taha El Bouzidi, Portfolio, Web Developer, AI Developer, Data Analysis, Software Engineer, React, Node.js, Python, Machine Learning, Full Stack Developer" name="keywords">
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <link href="assets/img/web-logo.jpeg" rel="icon">
   <link href="assets/img/web-logo.jpeg" rel="apple-touch-icon">
@@ -554,7 +554,7 @@
       <div class="row">
         <div class="col-sm-12">
           <div class="copyright-box">
-            <p class="copyright">&copy; Copyright <strong>Taha El Bouzidi 2024</strong>. All Rights Reserved</p>
+            <p class="copyright">&copy; Copyright <strong>Taha El Bouzidi <span id="year">2024</span></strong>. All Rights Reserved</p>
             <div class="credits">
               <a>Unauthorized reproduction or distribution of this material is prohibited.</a>
             </div>
@@ -577,5 +577,39 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  
+  <!-- Dynamic year and enhancements -->
+  <script>
+    // Update year dynamically
+    document.addEventListener('DOMContentLoaded', function() {
+      const yearElement = document.getElementById('year');
+      if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+      }
+      
+      // Add scroll reveal animation
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+      };
+      
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, observerOptions);
+      
+      // Observe service boxes and work boxes
+      document.querySelectorAll('.service-box, .work-box').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+      });
+    });
+  </script>
 </body>
 </html>
